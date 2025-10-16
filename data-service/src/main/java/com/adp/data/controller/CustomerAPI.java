@@ -10,10 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/customers")
-public class CustomerController {
+public class CustomerAPI{
     private final CustomerRepository repo;
 
-    public CustomerController(CustomerRepository repo){
+    public CustomerAPI(CustomerRepository repo){
         this.repo = repo;
     }
 
@@ -23,7 +23,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Customer> getById(@PathVariable Long id) {
+    public ResponseEntity<Customer> getById(@PathVariable("id") Long id) {
         return repo.findById(id)
         .map(ResponseEntity::ok)
         .orElse(ResponseEntity.notFound().build());
@@ -38,7 +38,7 @@ public class CustomerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Customer> update(@PathVariable Long id, @RequestBody Customer c) {
+    public ResponseEntity<Customer> update(@PathVariable("id") Long id, @RequestBody Customer c) {
         return repo.findById(id).map(existing -> {
             existing.setName(c.getName());
             existing.setEmail(c.getEmail());
@@ -48,7 +48,7 @@ public class CustomerController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
         if (!repo.existsById(id)) return ResponseEntity.notFound().build();
         repo.deleteById(id);
         return ResponseEntity.noContent().build();

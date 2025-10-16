@@ -1,6 +1,19 @@
 server:
  port: 8080
-
+ servlet:
+    context-path: /api
 api.server:
     port: 8080
     url: http://localhost:%s/customers 
+    
+spring:
+    datasource:
+        url: jdbc:hsqldb:mem:customersdb #create in memory HSQL db (mem:RAM)
+        #url: jdbc:hsqldb:file:./data/customersdb #makes HSQL store data in customersdb.* file under /data
+        driver-class-name: org.hsqldb.jdbc.JDBCDriver #class that lets Spring talk to HSQL
+        username: sa #Default login
+        password: ##
+    jpa: #tells hibernate to auto create/update tables from entity class
+        hibernate: ##
+          ddl-auto: update ##
+        show-sql: true #prints SQL statements
