@@ -1,4 +1,4 @@
-package com.adp.data_service;
+package com.adp.data;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
