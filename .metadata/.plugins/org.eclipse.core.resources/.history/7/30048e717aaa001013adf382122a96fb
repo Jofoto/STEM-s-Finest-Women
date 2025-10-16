@@ -1,0 +1,47 @@
+package com.adp.data_service;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.adp.data.repository.CustomerRepository;
+
+import com.adp.data.model.customer.Customer;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import java.util.Optional;
+
+@DataJpaTest
+class CustomerRepositoryTest {
+	@Autowired
+	private CustomerRepository repo;
+	
+	@Test
+	@DisplayName("Save and find customer by ID")
+	void saveAndFindCustomer() {
+		Customer c = new Customer();
+		c.setName("Bob");
+		c.setEmail("bob@adp.com");
+		c.setPassword("secret");
+		
+		Customer saved = repo.save(c);
+		assertThat(saved.getId()).isNotNull();
+		
+		Optional<Customer> found = repo.findById(saved.getId());
+		assertThat(found).isPresent();
+		assertThat(found.get().getEmail()).isEqualTo("bob@adp.com");
+	}
+	
+	void deleteCustomer() {
+		Customer c = new Customer();
+		c.setName("Maria");
+		c.setEmail("maria@adp.com");
+		c.setPassword("maria1234");
+		
+		Customer saved = repo.save(c);
+		
+		repo.deleteById(saved.getId());
+		Optional<Customer> deleted = repo.findById(saved.getId());
+		assertThat(deleted).isEmpty();
+	}
+}

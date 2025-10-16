@@ -1,0 +1,9 @@
+package com.adp.data.controller;
+
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+class CustomerAPITest {
+	
+}

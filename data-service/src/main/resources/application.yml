@@ -17,3 +17,9 @@ spring:
         hibernate: ##
           ddl-auto: update ##
         show-sql: true #prints SQL statements
+  
+app:
+    jwt:
+        secret: dev-secret-change-me
+    internal: 
+        secret: dev-internal-secret

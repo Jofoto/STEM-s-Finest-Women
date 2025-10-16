@@ -1,0 +1,11 @@
+1760531998004	Move 'model' to 'data'
+1760532079229	Move 'customer' to 'model'
+1760539558668	Move 'DataServiceApplication.java' to 'data'
+1760539582379	Delete element
+1760606933967	Rename resource 'CustomerController.java'
+1760614408426	Rename resource 'data_service'
+1760614418022	Rename resource 'daTA'
+1760615849463	Move 'CustomerAPITest.java' to 'controller'
+1760624728606	Rename resource 'SecurityConfig.java'
+1760630970217	Move 'DataServiceApplication.java' to 'data'
+1760631183987	Delete element
