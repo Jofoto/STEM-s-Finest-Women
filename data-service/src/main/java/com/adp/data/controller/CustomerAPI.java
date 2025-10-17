@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/customers")
@@ -15,6 +16,13 @@ public class CustomerAPI{
 
     public CustomerAPI(CustomerRepository repo){
         this.repo = repo;
+    }
+    
+    @GetMapping("/search")
+    public ResponseEntity<Customer> findByUsername(@RequestParam String username) {
+    	Optional<Customer> customer = repo.findByUsername(username);
+    	return customer.map(ResponseEntity::ok)
+    			.orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping

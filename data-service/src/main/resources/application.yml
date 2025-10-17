@@ -15,11 +15,11 @@ spring:
         password: ##
     jpa: #tells hibernate to auto create/update tables from entity class
         hibernate: ##
-          ddl-auto: update ##
+          ddl-auto: create-drop ##
         show-sql: true #prints SQL statements
   
 app:
     jwt:
-        secret: dev-secret-change-me
+        secret: "shaimasSuperSecureJWTSecretKey123456"
     internal: 
         secret: dev-internal-secret

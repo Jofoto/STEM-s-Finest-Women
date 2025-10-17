@@ -42,7 +42,7 @@ public class AccountController {
 
         String storedPassword = String.valueOf(user.get("password"));
         if (!storedPassword.equals(req.password())) {throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Password Incorrect");}
-
+ 
 
         String token = tokenService.GenerateToken(req.username());
         return new TokenResponse(token);

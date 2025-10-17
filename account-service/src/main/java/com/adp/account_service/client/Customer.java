@@ -24,7 +24,7 @@ public class Customer {
         return rest.postForObject(url + "/customers", request, Map.class);
     }
 
-    public Map<?, ?> findByUsername(String username) { //calls the data service endpoint to find the username
+    public Map<?, ?> findByUsername(String username) { //calls the data service endpoint to find the Username
         try {
         
             return rest.getForObject(url + "/customers/by-username?username={username}", Map.class, username);

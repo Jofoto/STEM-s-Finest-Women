@@ -6,9 +6,13 @@ server:
 
 # Configure the prot and URI of the back-end REST-API
 data:
-    Service:
+    service:
         port: 8080
         url: http://localhost:8080/api
 
 jwt:
     secret: "shaimasSuperSecureJWTSecretKey123456"
+
+app:
+ internal: 
+  secret: "dev-internal-secret"
