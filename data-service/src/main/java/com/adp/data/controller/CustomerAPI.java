@@ -19,7 +19,7 @@ public class CustomerAPI{
     }
     
     @GetMapping("/search")
-    public ResponseEntity<Customer> findByUsername(@RequestParam String username) {
+    public ResponseEntity<Customer> findByUsername(@RequestParam("username") String username) {
     	Optional<Customer> customer = repo.findByUsername(username);
     	return customer.map(ResponseEntity::ok)
     			.orElseGet(() -> ResponseEntity.notFound().build());
@@ -48,7 +48,7 @@ public class CustomerAPI{
     @PutMapping("/{id}")
     public ResponseEntity<Customer> update(@PathVariable("id") Long id, @RequestBody Customer c) {
         return repo.findById(id).map(existing -> {
-            existing.setName(c.getName());
+            existing.setUsername(c.getUsername());
             existing.setEmail(c.getEmail());
             existing.setPassword(c.getPassword());
             return ResponseEntity.ok(repo.save(existing));

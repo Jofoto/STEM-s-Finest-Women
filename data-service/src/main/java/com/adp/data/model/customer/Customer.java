@@ -17,10 +17,10 @@ public class Customer {
 		public Long getId() {return id;}
 		public void setId(Long id) {this.id = id;}
 		
-		public void setName(String username) {
+		public void setUsername(String username) {
 			this.username = username;
 		}
-		public String getName() {
+		public String getUsername() {
 			return username;
 		}
 		

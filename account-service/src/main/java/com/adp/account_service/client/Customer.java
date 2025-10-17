@@ -27,7 +27,7 @@ public class Customer {
     public Map<?, ?> findByUsername(String username) { //calls the data service endpoint to find the Username
         try {
         
-            return rest.getForObject(url + "/customers/by-username?username={username}", Map.class, username);
+            return rest.getForObject(url + "/customers/search?username={username}", Map.class, username);
 
         } catch (Exception e) {
             return null;

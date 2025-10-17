@@ -20,7 +20,7 @@ class CustomerRepositoryTest {
 	@DisplayName("Save and find customer by ID")
 	public void saveAndFindCustomer() {
 		Customer c = new Customer();
-		c.setName("Bob");
+		c.setUsername("Bob");
 		c.setEmail("bob@adp.com");
 		c.setPassword("secret");
 		
@@ -34,7 +34,7 @@ class CustomerRepositoryTest {
 	
 	void deleteCustomer() {
 		Customer c = new Customer();
-		c.setName("Maria");
+		c.setUsername("Maria");
 		c.setEmail("maria@adp.com");
 		c.setPassword("maria1234");
 		

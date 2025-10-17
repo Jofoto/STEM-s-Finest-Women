@@ -32,7 +32,7 @@ class CustomerAPITest {
     @DisplayName("POST /api/customers should create a customer")
     void createCustomer() throws Exception {
         Customer c = new Customer();
-        c.setName("Alice");
+        c.setUsername("Alice");
         c.setEmail("alice@adp.com");
         c.setPassword("alice123");
 
@@ -48,7 +48,7 @@ class CustomerAPITest {
     @DisplayName("GET /api/customers should return list of customers")
     void getCustomers() throws Exception {
         Customer c = new Customer();
-        c.setName("Bob");
+        c.setUsername("Bob");
         c.setEmail("bob@adp.com");
         c.setPassword("bob123");
         repo.save(c);
@@ -62,13 +62,13 @@ class CustomerAPITest {
     @DisplayName("PUT /api/customers/{id} should update customer")
     void updateCustomer() throws Exception {
         Customer c = new Customer();
-        c.setName("Maria");
+        c.setUsername("Maria");
         c.setEmail("maria@adp.com");
         c.setPassword("maria123");
         Customer saved = repo.save(c);
 
         Customer updated = new Customer();
-        updated.setName("Maria Updated");
+        updated.setUsername("Maria Updated");
         updated.setEmail("maria2@adp.com");
         updated.setPassword("marianew");
 
@@ -83,7 +83,7 @@ class CustomerAPITest {
     @DisplayName("DELETE /api/customers/{id} should delete customer")
     void deleteCustomer() throws Exception {
         Customer c = new Customer();
-        c.setName("Dave");
+        c.setUsername("Dave");
         c.setEmail("dave@adp.com");
         c.setPassword("daveee");
         Customer saved = repo.save(c);
