@@ -1,5 +1,5 @@
 // servers must allow CORS requests for these urls to work
-const custBaseURL = 'http://localhost:4000/api/customers';
+const custBaseURL = 'http://localhost:8080/api/customers';
 const authBaseUrl = 'http://localhost:8081/account';
 
 let token = null;
@@ -125,7 +125,7 @@ export function lookupCustomerByName(username) {
 export async function registerUser( username, password, email) {
   let url = authBaseUrl +"/register";
   let customer = {
-    name: username,
+    username: username,
     email: email,
     password: password
   }
@@ -164,7 +164,7 @@ export function callTokenService(customer) {
 
 
 export async function getJWTToken(username, password) {
-  let customer = { "name": username, password };
+  let customer = { "username": username, "password": password };
 
   const response = await callTokenService(customer);
   if (!response.ok) {
