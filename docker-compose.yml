@@ -1,0 +1,25 @@
+# version: '3.9'
+
+services:
+  frontend:
+    build: ./client
+    ports:
+      - "3000:80"
+    depends_on:
+      - auth-service
+    environment:
+      - REACT_APP_API_URL=http://localhost:8081
+
+  auth-service:
+    build: ./account-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db-service
+    environment:
+      - DB_URL=http://data-service:8080 
+
+  db-service:
+    build: ./data-service
+    ports:
+      - "8080:8080"
