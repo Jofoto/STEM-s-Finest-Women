@@ -20,11 +20,11 @@ public class Customer {
         this.url = dataServiceUrl;
     }
 
-    public Map<?, ?> createCustomer(RegisterRequest request) { //sends post request to data service to create a new customer
+    public Map<String, String> createCustomer(RegisterRequest request) { //sends post request to data service to create a new customer
         return rest.postForObject(url + "/customers", request, Map.class);
     }
 
-    public Map<?, ?> findByUsername(String username) { //calls the data service endpoint to find the Username
+    public Map<String, String> findByUsername(String username) { //calls the data service endpoint to find the Username
         try {
         
             return rest.getForObject(url + "/customers/search?username={username}", Map.class, username);
