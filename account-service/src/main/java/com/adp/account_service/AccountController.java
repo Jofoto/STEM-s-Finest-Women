@@ -1,8 +1,10 @@
 package com.adp.account_service;
 
+import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import java.util.Map;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,7 @@ import com.adp.account_service.data_transfer.TokenRequest;
 import com.adp.account_service.data_transfer.TokenResponse;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/")
 public class AccountController {
 

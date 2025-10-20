@@ -17,9 +17,12 @@ services:
     depends_on:
       - db-service
     environment:
-      - DB_URL=http://data-service:8080 
+      - DB_URL=http://db-service
+      - DB_PORT=8080
 
   db-service:
     build: ./data-service
     ports:
       - "8080:8080"
+
+  
