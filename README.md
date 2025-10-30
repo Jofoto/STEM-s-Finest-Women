@@ -21,6 +21,7 @@ All services are containerized using **Docker** and orchestrated with **Docker C
 ---
 
 ##  Project Structure
+```
 customer-microservices/
 │
 ├── account-service/ # Authentication and JWT token generation
@@ -40,10 +41,10 @@ customer-microservices/
 │
 ├── docker-compose.yml # Multi-service orchestration
 └── README.md
-
+```
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 ###  Backend
 - **Java 21**
@@ -75,10 +76,10 @@ customer-microservices/
 3. The **Frontend** uses this token in all subsequent requests to the **Data Service** via: Authorization: Bearer <token>
 4. The **Data Service’s JwtFilter** validates this token before allowing access.
 
-### 🧱 Internal Communication
+###  Internal Communication
 
-- Internal calls between Account Service and Data Service (e.g. `/customers/search`) use:
-X-Internal-Secret: dev-internal-secret
+- Internal calls between Account Service and Data Service (e.g. `/customers/search`) use: <br>
+X-Internal-Secret: dev-internal-secret <br>
 which bypasses JWT validation for trusted service-to-service communication.
 
 ---
@@ -92,14 +93,14 @@ which bypasses JWT validation for trusted service-to-service communication.
 
 ###  Manual API Testing
 Use **Postman**:
-1. Register a user:
- POST http://localhost:8081/account/register
+1. Register a user: <br>
+ POST http://localhost:8081/account/register <br>
  Body: { "username": "alice", "email": "alice@adp.com", "password": "alice123" }
-2. Login to get a JWT token:
- POST http://localhost:8081/account/token
+2. Login to get a JWT token: <br>
+ POST http://localhost:8081/account/token <br>
  Body: { "username": "alice", "password": "alice123" }
-3. Use the token to access protected data:
+3. Use the token to access protected data: <br>
  Header: Authorization: Bearer <token>
 4. Internal communication (Account → Data):
- GET http://localhost:8080/api/customers/search?username=alice
+ GET http://localhost:8080/api/customers/search?username=alice <br>
  Header: X-Internal-Secret: dev-internal-secret
